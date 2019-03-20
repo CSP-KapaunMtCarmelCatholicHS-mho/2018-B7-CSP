@@ -7,7 +7,7 @@
 ####
 
 team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'Garrett'
+strategy_name = 'Garrett Noe'
 strategy_description = 'How does this strategy decide?'
     
 def move(my_history, their_history, my_score, their_score):
