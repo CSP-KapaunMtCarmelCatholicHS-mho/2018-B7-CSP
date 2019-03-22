@@ -11,7 +11,7 @@ strategy_name = 'Genius'
 strategy_description = 'Use their history and their score to decide'
 
 def prob_of_b(their_history):
-    if_their_history.count('b') > len(their_history)/2:
+    if their_history.count('b') > len(their_history)/2:
         return 'b'
     else:
         return 'c'
