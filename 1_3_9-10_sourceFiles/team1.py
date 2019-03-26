@@ -7,11 +7,11 @@
 ####
 
 team_name = 'Conners Team' # Only 10 chars displayed.
-strategy_name = 'always collude'
-strategy_description = 'always colludes'
+strategy_name = 'always betray'
+strategy_description = 'always betrays'
     
 def move(my_history, their_history, my_score, their_score):
-    return 'c'
+    return 'b'
     
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
