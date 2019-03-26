@@ -1,15 +1,19 @@
-####
-# Each team's file must define four tokens:
-#     team_name: a string
-#     strategy_name: a string
-#     strategy_description: a string
-#     move: A function that returns 'c' or 'b'
-####
+team_name = 'Reuben' # Only 10 chars displayed.
+strategy_name = 'Genius'
+strategy_description = 'Use their history and their score to decide'
 
-team_name = 'Matt' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+def prob_of_b(their_history):
+    if their_history.count('b') > len(their_history)/2:
+        return 'b'
+    else:
+        return 'c'
     
+def compare_scores(my_score, their_score):
+    if their_score > my_score:
+        return 'b'
+    else:
+        return 'c'
+        
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
@@ -26,7 +30,10 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'c'
+    if prob_of_b(their_history) == compare_scores(my_score, their_score):
+        return prob_of_b(their_history)
+    else:
+        return 'b'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
@@ -47,14 +54,14 @@ def test_move(my_history, their_history, my_score, their_score, result):
 
 if __name__ == '__main__':
      
-    # Test 1: Betray on first move.
-    if test_move(my_history='',
-              their_history='', 
+    # Test 1: Betray if history of betraying and their score > mine
+    if test_move(my_history='ccc',
+              their_history='bbb', 
               my_score=0,
-              their_score=0,
+              their_score=100,
               result='b'):
          print 'Test passed'
-     # Test 2: Continue betraying if they collude despite being betrayed.
+     # Test 2: collude if they don't have a history of betraying and their score < mine
     test_move(my_history='bbb',
               their_history='ccc', 
               # Note the scores are for testing move().
@@ -65,4 +72,11 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='b')             
+              result='c')
+      # Test 3: Betray if history and score comparison return different answers
+    if test_move(my_history='ccc',
+              their_history='bbb', 
+              my_score=200,
+              their_score=100,
+              result='b'):
+         print 'Test passed'             
