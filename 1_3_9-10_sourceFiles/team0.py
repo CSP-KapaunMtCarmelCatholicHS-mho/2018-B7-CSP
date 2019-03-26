@@ -2,6 +2,10 @@ team_name = 'Reuben' # Only 10 chars displayed.
 strategy_name = 'Genius'
 strategy_description = 'Use their history and their score to decide'
 
+team_name = 'Reuben' # Only 10 chars displayed.
+strategy_name = 'Genius'
+strategy_description = 'Use their history and their score to decide'
+
 def prob_of_b(their_history):
     if their_history.count('b') > len(their_history)/2:
         return 'b'
