@@ -11,7 +11,7 @@ strategy_name = 'always betray'
 strategy_description = 'always betrays'
     
 def move(my_history, their_history, my_score, their_score):
-    return their_history
+    return 'b'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
@@ -31,5 +31,5 @@ def test_move(my_history, their_history, my_score, their_score, result):
         return False
         
 # Test 1
-if test_move(my_history='c', their_history='b', my_score=0, their_score=0, result='b'):
+if test_move(my_history='b', their_history='b', my_score=0, their_score=0, result='b'):
     print 'Test passed'
